@@ -17,8 +17,8 @@
 ## Иконка - только .ico
 - PyInstaller на Windows принимает `--icon .ico` (или `.exe`). **PNG не подходит:**
   без Pillow сборка падает `ValueError` (история: первая сборка бюджета -
-  передали `src\assets\netapplogo.png`).
-- Рабочий файл: `_TEMP/netapplogo.ico`.
+  передали `src\assets\app_icon.png`).
+- Рабочий файл: `_TEMP/app_icon.ico`.
 
 ## Главный подводный камень: таймаут 120 c
 - Среда агентов (`run_python`) жёстко режет процесс через **120 секунд**, а сборка
@@ -29,7 +29,7 @@
   переживёт завершение `run_python`; прогресс смотреть по логу и появлению exe.
 
 ## Проверенный рецепт (один прогон, ~4 мин)
-1. Убедиться, что иконка на месте: `_TEMP\netapplogo.ico`.
+1. Убедиться, что иконка на месте: `_TEMP\app_icon.ico`.
 2. Собрать из `run_python` (Windows-хост) фоном:
    ```python
    import subprocess, os
@@ -37,7 +37,7 @@
    cmd = [
        r"D:\Documents\Projects\ai_ui\venv\Scripts\python.exe", "-m", "PyInstaller",
        "--noconfirm", "--onefile", "--windowed",
-       "--icon", os.path.join(root, "_TEMP", "netapplogo.ico"),
+       "--icon", os.path.join(root, "_TEMP", "app_icon.ico"),
        "--name", "NetAppVolumeUtility",
        "--distpath", os.path.join(root, "src"),
        "--workpath", os.path.join(root, "_TEMP", "build"),

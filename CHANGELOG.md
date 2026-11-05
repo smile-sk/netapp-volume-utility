@@ -5,7 +5,7 @@
   Версия кода остаётся 0.1.19 - это запись о СБОРКЕ, а не о коде.
 - В сборку вошли фиксы 0.1.18 (парсинг igroup) и 0.1.19 (светлая тема на Windows):
   предыдущий exe собран в 0.1.16 ДО этих правок (в нём старый парсер и старый theme).
-- Иконка _TEMP/netapplogo.ico вшита в ресурсы exe (проверено WinAPI ExtractIconEx -> 1).
+- Иконка _TEMP/app_icon.ico вшита в ресурсы exe (проверено WinAPI ExtractIconEx -> 1).
 - Правильный процесс сборки задокументирован для разработчика: docs/BUILD.md
   (иконка только .ico; таймаут 120 c - собирать фоном; venv ai_ui, не .venv проекта).
 - Обновлены CHANGELOG.md, state/developer.json.
@@ -86,7 +86,7 @@
   значений, атомарная запись; креды по-прежнему не сохраняются.
 - i18n: новые ключи login_host, err_host_required (RU/UA/EN).
 - **exe пересобран с иконкой**: src/NetAppVolumeUtility.exe собран встроенным
-  compile_exe (windowed); иконка netapplogo.ico вшита в ресурсы exe.
+  compile_exe (windowed); иконка app_icon.ico вшита в ресурсы exe.
 - Обновлены src/ui/login_dialog.py, src/settings.py, src/i18n.py, README.md,
   state/developer.json, state/qa.json. Smoke: все блоки зелёные;
   login_dialog.py / settings.py компилируются; hosts round-trip проверен.
@@ -100,7 +100,7 @@
 - Теперь сборка идёт встроенным инструментом `compile_exe` (PyInstaller из venv ai_ui,
   Python 3.12), куда установлен paramiko 5.0.0 + cryptography + cffi -
   exe полностью автономный, не зависит от venv проекта.
-- Ассеты (логотип входа 1084.png, иконка netapplogo.png) вшиты в exe через
+- Ассеты (логотип входа login_logo.png, иконка app_icon.png) вшиты в exe через
   `src/assets_data.py` (base64) - нет зависимости от файлов на диске
   и от `__file__`-путей в frozen-режиме.
 - `src/build_main.py` упрощён: убран хак с подтягиванием venv проекта
@@ -113,8 +113,8 @@
   убран `scaled()` - никакого искажения и пережатия.
 ## [0.1.13] - 2026-08-17
 - **Логотип на окне входа (заказ оператора).**
-  - `_TEMP/1084.png` (сначала 351x227, затем оператор перерисовал - 300x110,
-    убраны лишние границы, компактнее) скопирована в `src/assets/1084.png`.
+  - `_TEMP/login_logo.png` (сначала 351x227, затем оператор перерисовал - 300x110,
+    убраны лишние границы, компактнее) скопирована в `src/assets/login_logo.png`.
   - `src/ui/login_dialog.py`: QLabel с картинкой внизу формы - между
     выбором режима (SSH/Fake) и кнопками. Пропорциональное сжатие до
     ширины 300px (для нового файла - 300x110 как есть, KeepAspectRatio +
@@ -135,10 +135,10 @@
     квадрата кнопки, а не у правого края).
   - Светлая тема не тронута (системная стрелка Qt).
 - **Иконка приложения (заказ оператора).**
-  - В проект добавлена `src/assets/netapplogo.png` (512x512, копия из
-    `_TEMP/netapplogo.png`, приложенной оператором).
+  - В проект добавлена `src/assets/app_icon.png` (512x512, копия из
+    `_TEMP/app_icon.png`, приложенной оператором).
   - `src/main.py`: `app.setWindowIcon(QIcon(...))` - путь считается
-    относительно `__file__` (`src/assets/netapplogo.png`), работает из
+    относительно `__file__` (`src/assets/app_icon.png`), работает из
     любой рабочей директории. Иконка на окне входа, главном окне и в
     панели задач.
 - Обновлены `src/theme.py`, `src/main.py`, `README.md`, `state/developer.json`.

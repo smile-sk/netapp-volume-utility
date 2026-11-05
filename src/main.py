@@ -4,7 +4,7 @@ import sys
 from PySide6.QtGui import QIcon, QPixmap
 from PySide6.QtWidgets import QApplication, QDialog
 
-from assets_data import icon_netapplogo_png
+from assets_data import app_icon_png
 
 from i18n import I18n
 from settings import load_settings
@@ -16,9 +16,9 @@ from ui.main_window import MainWindow
 def main():
     app = QApplication(sys.argv)
     icon_pix = QPixmap()
-    icon_pix.loadFromData(icon_netapplogo_png)
+    icon_pix.loadFromData(app_icon_png)
     if icon_pix.isNull():
-        icon_pix = QPixmap(str(pathlib.Path(__file__).resolve().parent / "assets" / "netapplogo.png"))
+        icon_pix = QPixmap(str(pathlib.Path(__file__).resolve().parent / "assets" / "app_icon.png"))
     app.setWindowIcon(QIcon(icon_pix))
 
     # Последний выбранный язык и тема восстанавливаются при старте.

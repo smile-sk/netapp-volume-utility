@@ -52,7 +52,7 @@ CLUSTERS = {
         display_name="C400_02",
         hosts={"PROD": "0.0.0.0", "TEST": "0.0.0.0"},
         aggregates=("C400_02_01_SSD_CAP_1", "C400_02_02_SSD_CAP_1"),
-        # эталон _reference/NetApp_Volume_Utility_C400.ps1: дефолт windows_gpt, дальше linux
+        # эталон прежних скриптов (кластер C400): дефолт windows_gpt, дальше linux
         lun_ostypes=("windows_gpt", "linux"),
         qos_policies=_COMMON_QOS + (NO_QOS,),
     ),
@@ -63,7 +63,7 @@ CLUSTERS = {
         # на месте; отдельный тестовый IP для C800 в конфиге не задокументирован.
         hosts={"PROD": "0.0.0.0", "TEST": "0.0.0.0"},
         aggregates=("C800_02_01_SSD_CAP_1", "C800_02_02_SSD_CAP_1"),
-        # эталон _reference/NetApp_Volume_Utility_C800.ps1: дефолт windows, дальше linux
+        # эталон прежних скриптов (кластер C800): дефолт windows, дальше linux
         lun_ostypes=("windows", "linux"),
         qos_policies=_COMMON_QOS + (NO_QOS,),
     ),

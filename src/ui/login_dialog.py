@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (
 )
 
 from app_config import CLUSTERS, SSH_PORT, TARGETS
-from assets_data import logo_1084_png
+from assets_data import login_logo_png
 from backend.fake import FakeBackend
 from backend.real import RealBackend
 from i18n import LANG_NAMES
@@ -107,9 +107,9 @@ class LoginDialog(QDialog):
         # используется как запасной вариант (запуск из исходников).
         self.logo_label = QLabel()
         logo_pix = QPixmap()
-        logo_pix.loadFromData(logo_1084_png)
+        logo_pix.loadFromData(login_logo_png)
         if logo_pix.isNull():
-            logo_path = Path(__file__).resolve().parent.parent / "assets" / "1084.png"
+            logo_path = Path(__file__).resolve().parent.parent / "assets" / "login_logo.png"
             logo_pix = QPixmap(str(logo_path))
         if not logo_pix.isNull():
             # Нативный размер 1:1 с файлом: физический размер пиксмапа = размеру

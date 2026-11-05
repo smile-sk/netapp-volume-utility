@@ -2,6 +2,9 @@
 
 A desktop GUI for the daily grind of storage administration: create a volume, create a LUN, map it, see what is mapped. Built for NetApp ONTAP clusters, Python + PySide6, about 2,100 lines.
 
+> Independent tool. Not affiliated with, endorsed by, or supported by NetApp, Inc. The name NetApp and the product name ONTAP are used only to say what this tool talks to.
+
+
 ## Why it exists
 
 Provisioning storage through the ONTAP web UI is slow, and vendor support keeps pointing admins at the CLI anyway. The CLI is powerful but unforgiving: a `volume create` is one long line with eight flags, and a single forgotten flag quietly gives you a volume with snapshots enabled, the wrong security style or no autosize policy. Nobody notices until a LUN runs out of space three months later.
@@ -63,11 +66,11 @@ python src/main.py
 
 At startup: language, theme, cluster, cluster address, username, password. The address is stored in `~/.netapp_volume_utility/settings.json` so the same build works against any cluster without rebuilding.
 
-A standalone Windows executable can be built with PyInstaller; the entry point is `src/build_main.py`. Logos are embedded as base64, so the result is a single self-contained file. Details in `docs/BUILD.md`.
+A standalone Windows executable can be built with PyInstaller; the entry point is `src/build_main.py`. The app icon is embedded as base64, so the result is a single self-contained file. Details in `docs/BUILD.md`.
 
 ## What is not in this repository
 
-- **The original PowerShell scripts.** They are the employer's working artefacts, not mine to publish. The Python code is my own.
+- **The reference PowerShell scripts of the production environment.** They are not mine to publish. The Python code here is my own.
 - **Cluster addresses.** Placeholders are `0.0.0.0`; you enter your own.
 - **Internal QA reports and agent scaffolding.** They refer to those scripts and to a private environment.
 
@@ -76,6 +79,10 @@ The detailed Russian specification, the cluster parameter reference and the full
 ## Status
 
 Working and in use: it provisions volumes and LUNs on production clusters, with the fake backend for testing UI changes without touching storage. It is a focused tool, not a framework: four operations done carefully.
+
+## Trademarks
+
+NetApp and ONTAP are trademarks of NetApp, Inc. This is an unaffiliated, independent tool: no NetApp logo, icon or artwork is included in the source or in the built executable. It talks to clusters over SSH using the same documented ONTAP CLI commands an administrator would type.
 
 ## License
 
