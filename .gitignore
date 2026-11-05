@@ -1,0 +1,30 @@
+# Секреты и креды - никогда в репозиторий
+*.cred
+*.secret
+credentials*
+*.key
+
+# Логи и временное
+*.log
+logs/
+_TEMP/
+*.tmp
+
+# Артефакты сборки
+bin/
+obj/
+dist/
+*.exe
+
+# Системное
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# build artefacts
+*.exe
+*.pyc
+__pycache__/
+.venv/
+_TEMP/
+state/
