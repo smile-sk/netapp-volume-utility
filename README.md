@@ -70,9 +70,9 @@ A standalone Windows executable can be built with PyInstaller; the entry point i
 
 ## What is not in this repository
 
-- **The reference PowerShell scripts of the production environment.** They are not mine to publish. The Python code here is my own.
+- **The reference PowerShell scripts.** I wrote them myself, by hand, to run these clusters day to day; the Python application here is a rewrite of that work as a GUI. The scripts stay out of the public copy because they name internal hosts and company infrastructure. Everything they taught about ONTAP behaviour is written down in `docs/SPEC.md` and `CHANGELOG.md`.
 - **Cluster addresses.** Placeholders are `0.0.0.0`; you enter your own.
-- **Internal QA reports and agent scaffolding.** They refer to those scripts and to a private environment.
+- **Internal QA reports and agent scaffolding.** They describe the private environment the tool was built for.
 
 The detailed Russian specification, the cluster parameter reference and the full changelog are kept as they were written during the work: `docs/SPEC.md`, `config/clusters.md`, `CHANGELOG.md`. They are the honest record of the project, including the bugs and the arguments about them.
 
